@@ -8203,3 +8203,123 @@ Processing by ListsController#show as HTML
   [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items" WHERE "items"."list_id" = ?  [["list_id", 1]]
   Rendered lists/show.html.erb within layouts/application (9.3ms)
 Completed 200 OK in 34ms (Views: 31.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2016-07-17 19:34:31 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ListsController#index as HTML
+  [1m[35mList Load (0.3ms)[0m  SELECT "lists".* FROM "lists"
+  Rendered lists/index.html.erb within layouts/application (64.5ms)
+Completed 200 OK in 559ms (Views: 526.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/lists/1" for ::1 at 2016-07-17 19:34:34 -0400
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mList Load (0.3ms)[0m  [1mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.4ms)[0m  SELECT "items".* FROM "items" WHERE "items"."list_id" = ?  [["list_id", 1]]
+  Rendered lists/show.html.erb within layouts/application (57.0ms)
+Completed 200 OK in 150ms (Views: 112.3ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/lists/1/items" for ::1 at 2016-07-17 19:34:43 -0400
+Processing by ItemsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CXobY4CgfBhf9YNKI9uIc6Rx1ie7LAGIEvCkIZXFh3XlJFp9w8JDnRzSkJY7z2t59PiSV/TvbIwEVOuNTjvfmw==", "item"=>{"description"=>"green onions"}, "commit"=>"Create Item", "list_id"=>"1"}
+  [1m[36mList Load (0.2ms)[0m  [1mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.7ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "items" ("description", "list_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "green onions"], ["list_id", 1], ["created_at", "2016-07-17 23:34:43.288266"], ["updated_at", "2016-07-17 23:34:43.288266"]]
+  [1m[35m (2.2ms)[0m  commit transaction
+Redirected to http://localhost:3000/lists/1
+Completed 302 Found in 11ms (ActiveRecord: 3.7ms)
+
+
+Started GET "/lists/1" for ::1 at 2016-07-17 19:34:43 -0400
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mList Load (0.2ms)[0m  [1mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items" WHERE "items"."list_id" = ?  [["list_id", 1]]
+  Rendered lists/show.html.erb within layouts/application (21.5ms)
+Completed 200 OK in 67ms (Views: 64.0ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/lists/1/items" for ::1 at 2016-07-17 19:34:53 -0400
+Processing by ItemsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1E5xxOTbUjmA7nxd5rjh1TAG9XmhDbjxDeaPGbZwgB44EDDap7ltvMPJb4H+rALfYI+xCe7O1fUbQsC1bY7Y8A==", "item"=>{"description"=>"Bok Choy"}, "commit"=>"Create Item", "list_id"=>"1"}
+  [1m[36mList Load (0.2ms)[0m  [1mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "items" ("description", "list_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "Bok Choy"], ["list_id", 1], ["created_at", "2016-07-17 23:34:53.760194"], ["updated_at", "2016-07-17 23:34:53.760194"]]
+  [1m[35m (2.3ms)[0m  commit transaction
+Redirected to http://localhost:3000/lists/1
+Completed 302 Found in 10ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/lists/1" for ::1 at 2016-07-17 19:34:53 -0400
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mList Load (0.2ms)[0m  [1mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items" WHERE "items"."list_id" = ?  [["list_id", 1]]
+  Rendered lists/show.html.erb within layouts/application (18.7ms)
+Completed 200 OK in 57ms (Views: 54.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/lists" for ::1 at 2016-07-17 19:34:56 -0400
+Processing by ListsController#index as HTML
+  [1m[36mList Load (0.2ms)[0m  [1mSELECT "lists".* FROM "lists"[0m
+  Rendered lists/index.html.erb within layouts/application (37.2ms)
+Completed 200 OK in 62ms (Views: 60.9ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/lists" for ::1 at 2016-07-17 19:34:58 -0400
+Processing by ListsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/OZz1iOfeXDiIHjorMXF4o8L0FL2nyGbi+yPu3X4JzQQuDLIYP1G9aEHazS00Sbo34KUIrlcTJ+dSMAXrgZ/2g==", "list"=>{"name"=>""}, "commit"=>"Create List"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35mList Load (0.2ms)[0m  SELECT "lists".* FROM "lists"
+  Rendered lists/index.html.erb within layouts/application (29.7ms)
+Completed 200 OK in 62ms (Views: 57.5ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/lists" for ::1 at 2016-07-17 19:35:07 -0400
+Processing by ListsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HUNLs+ywn3yj/cPtPon0zzAZ9o9hXhZqgrYa9UzizGXxHQqtr9Kg+eDa0DEmnRfFYJCy/y6de26UElVZlxyUiw==", "list"=>{"name"=>"cleaning list"}, "commit"=>"Create List"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "cleaning list"], ["created_at", "2016-07-17 23:35:07.586270"], ["updated_at", "2016-07-17 23:35:07.586270"]]
+  [1m[36m (2.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/lists/12
+Completed 302 Found in 7ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/lists/12" for ::1 at 2016-07-17 19:35:07 -0400
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[35mList Load (0.2ms)[0m  SELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items" WHERE "items"."list_id" = ?[0m  [["list_id", 12]]
+  Rendered lists/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 28ms (Views: 26.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/lists/12/items" for ::1 at 2016-07-17 19:35:11 -0400
+Processing by ItemsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bwf54xqtb5V5thYieiV7WLttoez1Qtx9f27+mJbcPzWDWbj9Wc9QEDqRBf5iMZhS6+TlnLqBsXlpyrE0TSJn2w==", "item"=>{"description"=>"rags"}, "commit"=>"Create Item", "list_id"=>"12"}
+  [1m[35mList Load (0.2ms)[0m  SELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "items" ("description", "list_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["description", "rags"], ["list_id", 12], ["created_at", "2016-07-17 23:35:11.667466"], ["updated_at", "2016-07-17 23:35:11.667466"]]
+  [1m[36m (2.2ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/lists/12
+Completed 302 Found in 8ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/lists/12" for ::1 at 2016-07-17 19:35:11 -0400
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[35mList Load (0.2ms)[0m  SELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items" WHERE "items"."list_id" = ?[0m  [["list_id", 12]]
+  Rendered lists/show.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 28ms (Views: 26.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/lists" for ::1 at 2016-07-17 19:35:13 -0400
+Processing by ListsController#index as HTML
+  [1m[35mList Load (0.2ms)[0m  SELECT "lists".* FROM "lists"
+  Rendered lists/index.html.erb within layouts/application (25.6ms)
+Completed 200 OK in 52ms (Views: 50.2ms | ActiveRecord: 0.2ms)
