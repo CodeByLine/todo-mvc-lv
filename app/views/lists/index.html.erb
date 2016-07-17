@@ -1,9 +1,12 @@
 <section class="todoapp">
   <header class="header">
     <h1>My Lists</h1>
-    
+
     <%= form_for(@list) do |f| %>
-      <%= f.text_field :name, :class => "new-todo" %>
+    <!-- <%= debug @lists %> -->
+      <%= f.text_field :name, :class => "new-todo", :placeholder => (@list.errors.full_messages_for(:name).first || "Enter a new list name...") %>
+      <!-- <p>item field is mirrored in lists/show.html.erb</p> -->
+
       <%= f.submit :style => "display: none" %>
     <% end %>
 
@@ -21,7 +24,7 @@
           <label><%= link_to list.name, list_path(list) %></label>
         </div>
       </li>
-      <% end %> 
+      <% end %>
     </ul>
   </section>
   <footer class="footer">

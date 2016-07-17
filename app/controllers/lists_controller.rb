@@ -8,19 +8,29 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
+    @item = Item.new
+    # @item = @list.items.build #This replaces the line in show.html.erb which exposes the model
+  end
+
+  def new
+    @list = List.new
+    redirect_to lists_path
   end
 
   def create
     @list = List.new(list_params)
-    @list.name = params[:list][:name]
-    @list.save
-    redirect_to lists_path
-
-    # redirect_to list_url(@list)
+    if @list.save
+      redirect_to list_url(@list)
+    else
+      @lists = List.all
+      render :index
+    end
   end
+
+
   private
 
-    def list_params # strong parameters
+    def list_params
       params.require(:list).permit(:name)
     end
 end
