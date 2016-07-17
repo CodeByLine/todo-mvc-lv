@@ -3,8 +3,8 @@ class ItemsController < ApplicationController
   	# raise params.inspect
 	@list = List.find(params[:list_id])
   # @items = @list.items.new unless @items.blank?
-	# @item = @list.items.build(item_params)
-  	@item = Item.new(item_params)
+	@item = @list.items.build(item_params)
+  	# @item = Item.new(item_params)
   	if @item.save
   		redirect_to list_path(@list)
   	else
